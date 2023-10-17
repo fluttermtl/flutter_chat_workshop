@@ -1,0 +1,20 @@
+name: Flutter Chat Workshop
+
+type: flutter
+
+steps:
+  - name: Introduction
+    directory: 01_introduction
+    has_solution: false
+  - name: Create UI with static Data
+    directory: 02_create_ui_static_data
+    has_solution: true
+  - name: Local interaction with StatefulWidget
+    directory: 03_local_interaction_with_state
+    has_solution: true
+  - name: Store Chat in a Database
+    directory: 04_store_chat_database
+    has_solution: true
+  - name: Improve Chat UI
+    directory: 05_improve_ui
+    has_solution: true
