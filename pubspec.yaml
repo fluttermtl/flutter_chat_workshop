@@ -1,0 +1,10 @@
+name: flutter_chat_workshop
+
+environment:
+  sdk: "^3.1.2"
+
+# https://dartpad.dev/workshops.html?webserver=
+
+dependencies:
+  flutter:
+    sdk: flutter
