@@ -4,7 +4,7 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const FlutterChatWorkshopApp());
+  runApp(FlutterChatWorkshopApp());
 }
 
 class FlutterChatWorkshopApp extends StatelessWidget {
@@ -40,7 +40,7 @@ class FlutterChatPage extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.all(8),
             child: TextField(
               decoration: InputDecoration(
                 border: OutlineInputBorder(),

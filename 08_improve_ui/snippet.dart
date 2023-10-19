@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const FlutterChatWorkshopApp());
+  runApp(FlutterChatWorkshopApp());
 }
 
 class FlutterChatWorkshopApp extends StatelessWidget {
