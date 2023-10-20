@@ -1,4 +1,5 @@
 // ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors_in_immutables
 // ignore_for_file: prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
@@ -20,7 +21,12 @@ class FlutterChatWorkshopApp extends StatelessWidget {
 }
 
 class FlutterChatPage extends StatelessWidget {
-  const FlutterChatPage({super.key});
+  FlutterChatPage({super.key});
+
+  // Use this function at the right place
+  void sendMessage(String message) {
+    print(message);
+  }
 
   @override
   Widget build(BuildContext context) {

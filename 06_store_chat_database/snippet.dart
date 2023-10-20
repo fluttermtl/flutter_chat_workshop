@@ -1,9 +1,22 @@
 // ignore_for_file: prefer_const_constructors
 // ignore_for_file: prefer_const_literals_to_create_immutables
 
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async {
+  // DO NOT TOUCH: Firebase configuration
+  await Firebase.initializeApp(
+    options: const FirebaseOptions(
+      apiKey: 'AIzaSyBFQIi3pNiQNoM4y7dBKxBCp-lzeqSPfg8',
+      appId: '1:702148614087:web:7615cf62cdbb20e7c52be2',
+      messagingSenderId: '702148614087',
+      projectId: 'flutter-chat-aliyazdi',
+      authDomain: 'flutter-chat-aliyazdi.firebaseapp.com',
+      storageBucket: 'flutter-chat-aliyazdi.appspot.com',
+    ),
+  );
+
   runApp(FlutterChatWorkshopApp());
 }
 
@@ -25,7 +38,7 @@ class FlutterChatPage extends StatelessWidget {
   final TextEditingController controller = TextEditingController();
 
   void sendMessage(String message) {
-    print(message);
+    // TODO: Send message to Firestore
   }
 
   @override

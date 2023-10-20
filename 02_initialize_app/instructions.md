@@ -10,8 +10,11 @@ The sections bellow are about mandatory functions and widget to create the root 
 The `runApp` function is used to initialize the app.
 This function is called in a main function that will be the entry point of the app.
 It takes as input a widget that will be the root of the app.
+Don't forget to import the `package:flutter/material.dart` that contains the `runApp` function.
 
 ```dart
+import 'package:flutter/material.dart';
+
 void main() {
   runApp(MyApp());
 }
