@@ -35,11 +35,12 @@ class FlutterChatPage extends StatelessWidget {
         children: [
           Expanded(
             child: ListView.builder(
+              reverse: true,
               itemCount: 10,
               itemBuilder: (context, index) {
                 return ListTile(
                   leading: Text('now'),
-                  title: Text('One super message'),
+                  title: Text('Message number $index'),
                   subtitle: Text('John Doe'),
                 );
               },

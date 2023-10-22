@@ -4,6 +4,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+
+final userId = UniqueKey().toString();
 
 void main() async {
   // DO NOT TOUCH: Firebase configuration
@@ -36,12 +39,26 @@ class FlutterChatWorkshopApp extends StatelessWidget {
 class FlutterChatPage extends StatelessWidget {
   FlutterChatPage({super.key});
 
-  final TextEditingController controller = TextEditingController();
+  final controller = TextEditingController();
 
-  final steam = FirebaseFirestore.instance
+  final stream = FirebaseFirestore.instance
       .collection('chat')
       .orderBy('time', descending: true)
       .snapshots();
+
+  ({
+    String? name,
+    String? message,
+    DateTime time,
+  }) parseDocument(Map<String, dynamic> doc) {
+    final time = DateTime.fromMillisecondsSinceEpoch(doc['time'] as int? ?? 0);
+
+    return (
+      name: doc['name'],
+      message: doc['message'],
+      time: time,
+    );
+  }
 
   void sendMessage(String message) {
     if (message.isEmpty) {
@@ -49,10 +66,12 @@ class FlutterChatPage extends StatelessWidget {
     }
 
     FirebaseFirestore.instance.collection('chat').add({
-      'name': 'John Doe',
+      'name': userId,
       'message': message,
       'time': DateTime.now().millisecondsSinceEpoch,
     });
+
+    controller.clear();
   }
 
   @override
@@ -61,22 +80,23 @@ class FlutterChatPage extends StatelessWidget {
       body: Column(
         children: [
           Expanded(
-            child: StreamBuilder<QuerySnapshot>(
-              stream: steam,
+            child: StreamBuilder(
+              stream: stream,
               builder: (context, snapshot) {
-                if (!snapshot.hasData) {
-                  return const Center(
-                    child: CircularProgressIndicator(),
-                  );
-                }
+                final docs =
+                    snapshot.data?.docs.map((doc) => doc.data()).toList() ?? [];
 
                 return ListView.builder(
-                  itemCount: 10,
+                  reverse: true,
+                  itemCount: docs.length,
                   itemBuilder: (context, index) {
+                    final doc = parseDocument(docs[index]);
+                    final time = DateFormat('hh:mm a').format(doc.time);
+
                     return ListTile(
-                      leading: Text('now'),
-                      title: Text('One super message'),
-                      subtitle: Text('John Doe'),
+                      leading: Text(time),
+                      title: Text(doc.message ?? ''),
+                      subtitle: Text(doc.name ?? ''),
                     );
                   },
                 );

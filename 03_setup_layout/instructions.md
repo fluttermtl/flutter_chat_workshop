@@ -1,4 +1,4 @@
-# Setup layout
+# Step 3: Setup layout
 
 When it comes to organizing the layout of a Flutter app, we can use the `Flex` widget.
 

@@ -14,12 +14,20 @@ class FlutterChatWorkshopApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData.light(useMaterial3: true),
-      home: Scaffold(
-        // TODO: put your new widget here (check below)
-        body: Placeholder(),
-      ),
+      // TODO: replace with the new page
+      home: Placeholder(),
     );
   }
 }
 
-// TODO: implement the layout in an external widget
+class FlutterChatPage extends StatelessWidget {
+  const FlutterChatPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      // TODO: implement chat layout
+      body: Placeholder(),
+    );
+  }
+}

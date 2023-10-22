@@ -18,9 +18,9 @@ steps:
   - name: Write Message
     directory: 05_write_message
     has_solution: true
-  - name: Store Chat Database
-    directory: 06_store_chat_database
+  - name: Store Read Messages
+    directory: 06_read_messages
     has_solution: true
-  - name: Improve UI
-    directory: 07_improve_ui
+  - name: Send Message
+    directory: 07_send_message
     has_solution: true

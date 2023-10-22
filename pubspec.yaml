@@ -10,3 +10,4 @@ dependencies:
   firebase_core:
   flutter:
     sdk: flutter
+  intl:

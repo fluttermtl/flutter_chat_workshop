@@ -1,4 +1,4 @@
-# Chat list
+# Step 4: Chat list
 
 Now that we have the layout, it is time to implement the chat list.
 `ListView` will be our candidate to display the messages.

@@ -1,4 +1,4 @@
-# Introduction
+# Step 1: Introduction
 
 During this session, you will learn how to create a Flutter Chat app using Firebase. This link won't change after the workshop and will be available to be reused anytime.
 

@@ -1,6 +1,6 @@
-# Write message
+# Step 5: Write message
 
-
+This step will focus on the text input to send messages. 
 
 ---
 

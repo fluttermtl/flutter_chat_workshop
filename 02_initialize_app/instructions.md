@@ -1,4 +1,4 @@
-# Initialize app
+# Step 2: Initialize app
 
 On this step, we will covert how to initialize an app. 
 The sections bellow are about mandatory functions and widget to create the root structure of a Flutter application.
