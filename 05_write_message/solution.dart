@@ -22,10 +22,12 @@ class FlutterChatWorkshopApp extends StatelessWidget {
 class FlutterChatPage extends StatelessWidget {
   FlutterChatPage({super.key});
 
-  final TextEditingController controller = TextEditingController();
+  final controller = TextEditingController();
 
   void sendMessage(String message) {
     print(message);
+
+    controller.clear();
   }
 
   @override

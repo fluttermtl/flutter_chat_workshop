@@ -1,12 +1,13 @@
 # Step 3: Setup layout
 
-When it comes to organizing the layout of a Flutter app, we can use the `Flex` widget.
+The main focus of this step is to setup the layout of the application.
+Use the `Placeholder` widget to simulate the components such as chat list and text input.
 
 ---
 
-## Flex
+## Column and Row
 
-`Flex` is a framework for building responsive, accessible, and performant applications.
+Flex is a framework for building responsive, accessible, and performant applications.
 This framework is highly used by the web development and have been brought into Flutter layout widget family.
 The two main components of `Flex` are `Column` for vertical layout and `Row` for horizontal layout.
 
@@ -14,9 +15,9 @@ The two main components of `Flex` are `Column` for vertical layout and `Row` for
 // Row(
 Column(
   children: [
-    Text('Hello'),
-    Text('World'),
-  ]
+    SomeWidget(),
+    SomeOtherWidget(),
+  ],
 )
 ```
 
@@ -24,7 +25,12 @@ Column(
 
 ## Expanded and Flexible
 
-`Expanded` and `Flexible` are widgets that can be used to expand or shrink a widget to fill the available space. Those two widgets are used to fill the available space under `Flex` widget. `Expanded` will take the available space and `Flexible` will take the remaining space. They both have the flex property to specify the flex repartition.
+`Expanded` and `Flexible` are widgets that can be used to expand or shrink a widget to fill the available space.
+Those two widgets are used to fill the available space under `Flex` widget.
+`Expanded` will take the available space and `Flexible` will take the remaining space.
+They both have the flex property to specify the flex repartition.
+
+Those widgets are used under Column or Row widgets.
 
 ```dart
 Expanded(
@@ -38,13 +44,12 @@ Expanded(
 
 ## Placeholder
 
-This is the most amazing and useful `Widget` during development and prototyping user interface time.
-It can replace any widget or area which is work in progress.
-For text we have 'Lorem Ipsum', for `Widget` we have `Placeholder`.
+Placeholder has a `fallbackHeight` property to specify the height or `fallbackWidth` property to specify the width of the placeholder.
 
 ```dart
-Container(
-  child: Placeholder(),
+Placeholder(
+  // optional
+  fallbackHeight: 64,
 )
 ```
 

@@ -1,6 +1,6 @@
 # Step 2: Initialize app
 
-On this step, we will covert how to initialize an app. 
+On this step, we will cover how to initialize an app. 
 The sections bellow are about mandatory functions and widget to create the root structure of a Flutter application.
 
 ---
@@ -32,6 +32,8 @@ By Extending the `StatelessWidget` class, we have to implement the `build` funct
 
 ```dart
 class MyWidget extends StatelessWidget {
+  MyWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
     return SomeWidget();
@@ -52,14 +54,9 @@ It gives a lot of options to customize the look and feel of the app.
 More that than, it gives also some design behavior according to the framework like navigation, theme, context, etc.
 
 ```dart
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: SomeWidget(),
-    );
-  }
-}
+MaterialApp(
+  home: SomeWidget(),
+)
 ```
 
 [MaterialApp documentation](https://api.flutter.dev/flutter/material/MaterialApp-class.html)
@@ -71,14 +68,24 @@ Based on Material Design framework, some ui features come along like `AppBar`, `
 It also gives some design behavior like dialog, bottomsheet, etc.
 
 ```dart
-class MyPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SomeWidget(),
-    );
-  }
-}
+Scaffold(
+  body: SomeWidget(),
+)
 ```
 
 [Scaffold documentation](https://api.flutter.dev/flutter/material/Scaffold-class.html)
+
+## Placeholder
+
+This is the most amazing and useful `Widget` during development and prototyping user interface time.
+It can replace any widget or area which is work in progress.
+For text we have 'Lorem Ipsum', for `Widget` we have `Placeholder`.
+
+
+```dart
+Container(
+  child: Placeholder(),
+)
+```
+
+[Placeholder documentation](https://api.flutter.dev/flutter/widgets/Placeholder-class.html)

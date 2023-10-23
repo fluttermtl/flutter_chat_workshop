@@ -61,11 +61,11 @@ class FlutterChatPage extends StatelessWidget {
   }
 
   void sendMessage(String message) {
-    throw UnimplementedError();
+    print(message);
 
-    // TODO: send message to Firestore and use [userId] as message sender 'name'
+    // TODO: send message to Firestore is message is not empty and use [userId] as message sender 'name'
 
-    // TODO: clear the input
+    controller.clear();
   }
 
   @override

@@ -23,9 +23,13 @@ class FlutterChatWorkshopApp extends StatelessWidget {
 class FlutterChatPage extends StatelessWidget {
   FlutterChatPage({super.key});
 
+  // TODO: declare the controller and use it on the text input
+
   // Use this function at the right place
   void sendMessage(String message) {
     print(message);
+
+    // TODO: clear the text input
   }
 
   @override
@@ -46,8 +50,8 @@ class FlutterChatPage extends StatelessWidget {
               },
             ),
           ),
-          // TODO: implement message text field
-          Placeholder(fallbackHeight: 96),
+          // TODO: implement message text input
+          Placeholder(fallbackHeight: 64),
         ],
       ),
     );

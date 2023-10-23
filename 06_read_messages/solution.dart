@@ -60,6 +60,8 @@ class FlutterChatPage extends StatelessWidget {
 
   void sendMessage(String message) {
     print(message);
+
+    controller.clear();
   }
 
   @override

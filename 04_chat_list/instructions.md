@@ -2,7 +2,6 @@
 
 Now that we have the layout, it is time to implement the chat list.
 `ListView` will be our candidate to display the messages.
-This step will cover the different usage of this widget.
 
 ---
 
@@ -14,7 +13,7 @@ The most common usage of this practice is to give back in the Widget Tree the co
 ```dart
 // definition
 class SomeWidget extends StatelessWidget {
-  SomeWidget({ required this.builder });
+  SomeWidget({ super.key, required this.builder });
 
   final WidgetBuilder builder;
 
@@ -36,9 +35,12 @@ SomeWidget(
 
 The most common usage of this widget is to display a list of predifined items.
 It will create an unlimited space to display the items.
+`reverse` property is used to display the list in reverse order.
 
 ```dart
 ListView(
+  // optional
+  reverse: true,
   children: [
     Placeholder(),
     Placeholder(),
@@ -50,30 +52,23 @@ ListView(
 
 ## ListView.builder()
 
-This constructor will create items by passing a builder function with the index of the item.
+By using `builder` constructor, two arguments are required:
+- `itemCount` is the number of time that the list view will iterate on.
+- `itemBuilder` will be called for each `itemCount` iteration.
 
 ```dart
 ListView.builder(
+  // optional
+  reverse: true,
   itemCount: 10,
   itemBuilder: (context, index) => Text('Item $index'),
-)
-```
-
-## ListView.separated()
-
-Similar to ListView.builder(), adding the possibilité to separate the items.
-
-```dart
-ListView.separated(
-  itemCount: 10,
-  itemBuilder: (context, index) => Text('Item $index'),
-  separatorBuilder: (context, index) => Divider(),
 )
 ```
 
 ## ListTile
 
-`ListTile` widgets are often used in `ListView` widgets. It contains many properties to organize data in a row based on the Material Design specification.
+`ListTile` widgets are often used in `ListView` widgets.
+It contains many properties to organize data in a row based on the Material Design specification.
 
 ```dart
 ListTile(

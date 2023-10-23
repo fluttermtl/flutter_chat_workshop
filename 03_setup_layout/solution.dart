@@ -30,7 +30,7 @@ class FlutterChatPage extends StatelessWidget {
           Expanded(
             child: Placeholder(),
           ),
-          Placeholder(fallbackHeight: 96),
+          Placeholder(fallbackHeight: 64),
         ],
       ),
     );

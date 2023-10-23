@@ -1,6 +1,7 @@
 # Step 5: Write message
 
-This step will focus on the text input to send messages. 
+We want to be able to type a message and print it on the console.
+Use the according widget and use the `sendMessage` method without modifying it.
 
 ---
 
@@ -23,8 +24,10 @@ TextField(
 The `TextEditingController` is a controller for text input. It can be considered as a state of a `TextField` widget. Value is accessed through the `text` property.
 
 ```dart
-TextEditingController controller = TextEditingController(text: 'Hello World');
+final controller = TextEditingController(text: 'Hello World');
 print(controller.text);
+
+controller.clear(); // Clear the text
 ```
 
 [TextEditingController documentation](https://api.flutter.dev/flutter/widgets/TextEditingController-class.html)

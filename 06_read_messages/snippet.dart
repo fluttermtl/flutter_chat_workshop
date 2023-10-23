@@ -38,9 +38,9 @@ class FlutterChatWorkshopApp extends StatelessWidget {
 class FlutterChatPage extends StatelessWidget {
   FlutterChatPage({super.key});
 
-  final TextEditingController controller = TextEditingController();
+  final controller = TextEditingController();
 
-  // TODO: create Firestore documents stream of 'chat' collection
+  // TODO: create Firestore documents event stream of 'chat' collection
 
   ({
     String? name,
@@ -53,6 +53,8 @@ class FlutterChatPage extends StatelessWidget {
 
   void sendMessage(String message) {
     print(message);
+
+    controller.clear();
   }
 
   @override

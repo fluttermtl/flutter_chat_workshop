@@ -26,6 +26,7 @@ class FlutterChatWorkshopApp extends StatelessWidget {
           visible: false,
           replacement: Center(child: Text(secret)),
           child: Center(
+            // TODO: Click Run and see what happens!
             child: Text('Click Run and see what happens!'),
           ),
         ),
