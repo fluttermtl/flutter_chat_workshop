@@ -1,4 +1,4 @@
-# Step 6: Read messages
+# Step 8: Read messages
 
 Retrieve the messages from the database and display them.
 Here is the document structure:

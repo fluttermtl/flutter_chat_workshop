@@ -1,7 +1,13 @@
 // ignore_for_file: prefer_const_constructors
 // ignore_for_file: prefer_const_literals_to_create_immutables
 
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+
+final secret = String.fromCharCodes(
+  base64Decode('RG9uZSEgR28gdG8gbmV4dCBzdGVwIQ=='),
+);
 
 void main() {
   runApp(FlutterChatWorkshopApp());
@@ -12,11 +18,10 @@ class FlutterChatWorkshopApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData.light(useMaterial3: true),
-      home: Scaffold(
-        body: Placeholder(),
-      ),
+    return const MaterialApp(
+      home: FlutterChatPage(),
     );
   }
 }
+
+// TODO: create a page that contains a Placeholder in the body

@@ -1,4 +1,4 @@
-# Step 3: Setup layout
+# Step 5: Setup layout
 
 The main focus of this step is to setup the layout of the application.
 Use the `Placeholder` widget to simulate the components such as chat list and text input.

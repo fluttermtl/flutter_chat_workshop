@@ -7,20 +7,26 @@ steps:
     directory: 01_introduction
     has_solution: false
   - name: Initialize App
-    directory: 02_initialize_app
+    directory: 02_run_application
     has_solution: true
   - name: Setup Layout
-    directory: 03_setup_layout
+    directory: 03_prepare_app
     has_solution: true
   - name: Chat List
-    directory: 04_chat_list
+    directory: 04_first_page
     has_solution: true
   - name: Write Message
-    directory: 05_write_message
+    directory: 05_setup_layout
     has_solution: true
   - name: Store Read Messages
-    directory: 06_read_messages
+    directory: 06_chat_list
     has_solution: true
   - name: Send Message
-    directory: 07_send_message
+    directory: 07_write_message
+    has_solution: true
+  - name: Send Message
+    directory: 08_read_messages
+    has_solution: true
+  - name: Send Message
+    directory: 09_send_message
     has_solution: true
