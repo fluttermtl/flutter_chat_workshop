@@ -34,9 +34,14 @@ class FlutterChatWorkshopApp extends StatelessWidget {
   }
 }
 
-class FlutterChatPage extends StatelessWidget {
+class FlutterChatPage extends StatefulWidget {
   FlutterChatPage({super.key});
 
+  @override
+  State<FlutterChatPage> createState() => _FlutterChatPageState();
+}
+
+class _FlutterChatPageState extends State<FlutterChatPage> {
   final controller = TextEditingController();
 
   final stream = FirebaseFirestore.instance

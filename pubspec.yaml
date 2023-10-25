@@ -4,6 +4,7 @@ environment:
   sdk: "^3.1.2"
 
 # https://dartpad.dev/workshops.html?webserver=
+# https://raw.githubusercontent.com/fluttermtl/flutter_chat_workshop/main
 
 dependencies:
   cloud_firestore:

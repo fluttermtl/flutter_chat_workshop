@@ -1,4 +1,4 @@
-# Step 8: Read messages
+# Step 9: Read messages
 
 Retrieve the messages from the database and display them.
 Here is the document structure:
@@ -16,7 +16,9 @@ Firestore collection is accessible by using `collection` method that returns a `
 
 ```dart
 final regularCollection = FirebaseFirestore.instance.collection("subject");
-final orderedCollection = collectionReference.orderBy("name");
+
+// from Z to A
+final orderedCollection = collectionReference.orderBy("name", descending: true);
 ```
 
 The `get` method of a `CollectionReference` returns documents of the collection. To be notifyed of changes in the collection, use the `snapshots` method.

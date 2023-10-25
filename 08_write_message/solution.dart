@@ -1,5 +1,4 @@
 // ignore_for_file: prefer_const_constructors
-// ignore_for_file: prefer_const_constructors_in_immutables
 // ignore_for_file: prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
@@ -20,16 +19,24 @@ class FlutterChatWorkshopApp extends StatelessWidget {
   }
 }
 
-class FlutterChatPage extends StatelessWidget {
-  FlutterChatPage({super.key});
+class FlutterChatPage extends StatefulWidget {
+  const FlutterChatPage({super.key});
+
+  @override
+  State<FlutterChatPage> createState() => _FlutterChatPageState();
+}
+
+class _FlutterChatPageState extends State<FlutterChatPage> {
+  final messages = <String>[];
 
   final controller = TextEditingController();
 
-  // Use this function at the right place
   void sendMessage(String message) {
-    print(message);
+    setState(() {
+      messages.add(message);
+    });
 
-    // TODO: clear the text input
+    controller.clear();
   }
 
   @override
@@ -40,18 +47,30 @@ class FlutterChatPage extends StatelessWidget {
           Expanded(
             child: ListView.builder(
               reverse: true,
-              itemCount: 10,
+              itemCount: messages.length,
               itemBuilder: (context, index) {
                 return ListTile(
                   leading: Text('now'),
-                  title: Text('Message number $index'),
+                  title: Text(messages[messages.length - index - 1]),
                   subtitle: Text('John Doe'),
                 );
               },
             ),
           ),
-          // TODO: replace with the text input and make sure press enter key send message
-          Placeholder(fallbackHeight: 64),
+          Padding(
+            padding: const EdgeInsets.all(8),
+            child: TextField(
+              controller: controller,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                suffixIcon: IconButton(
+                  icon: Icon(Icons.send),
+                  onPressed: () => sendMessage(controller.text),
+                ),
+              ),
+              onSubmitted: sendMessage,
+            ),
+          ),
         ],
       ),
     );

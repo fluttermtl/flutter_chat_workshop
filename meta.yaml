@@ -22,11 +22,14 @@ steps:
     directory: 06_chat_list
     has_solution: true
   - name: Send Message
-    directory: 07_write_message
+    directory: 07_store_in_memory
     has_solution: true
   - name: Send Message
-    directory: 08_read_messages
+    directory: 08_write_message
     has_solution: true
   - name: Send Message
-    directory: 09_send_message
+    directory: 09_read_messages
+    has_solution: true
+  - name: Send Message
+    directory: 10_send_message
     has_solution: true

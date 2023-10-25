@@ -1,10 +1,16 @@
 // ignore_for_file: prefer_const_constructors
 // ignore_for_file: prefer_const_literals_to_create_immutables
 
+import 'dart:convert';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+
+final secret = String.fromCharCodes(
+  base64Decode('UmFpc2UgeW91ciBoYW5kIGFuZCBzaG93IHRoaXMh'),
+);
 
 final userId = UniqueKey().toString();
 
@@ -36,10 +42,15 @@ class FlutterChatWorkshopApp extends StatelessWidget {
   }
 }
 
-class FlutterChatPage extends StatelessWidget {
+class FlutterChatPage extends StatefulWidget {
   FlutterChatPage({super.key});
 
-  final controller = TextEditingController();
+  @override
+  State<FlutterChatPage> createState() => _FlutterChatPageState();
+}
+
+class _FlutterChatPageState extends State<FlutterChatPage> {
+  final controller = TextEditingController(text: secret);
 
   final stream = FirebaseFirestore.instance
       .collection('chat')
@@ -61,15 +72,9 @@ class FlutterChatPage extends StatelessWidget {
   }
 
   void sendMessage(String message) {
-    if (message.isEmpty) {
-      return;
-    }
+    print(message);
 
-    FirebaseFirestore.instance.collection('chat').add({
-      'name': userId,
-      'message': message,
-      'time': DateTime.now().millisecondsSinceEpoch,
-    });
+    // TODO: send message to Firestore is message is not empty and use [userId] as message sender 'name'
 
     controller.clear();
   }

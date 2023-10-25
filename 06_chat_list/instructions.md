@@ -2,6 +2,7 @@
 
 Now that we have the layout, it is time to implement the chat list.
 `ListView` will be our candidate to display the messages.
+The messages will contains the time, the sender name and the message.
 
 ---
 

@@ -1,11 +1,12 @@
 // ignore_for_file: prefer_const_constructors
 // ignore_for_file: prefer_const_literals_to_create_immutables
-// ignore_for_file: unused_import
 
-// TODO: import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+
+final userId = UniqueKey().toString();
 
 void main() async {
   // DO NOT TOUCH: Firebase configuration
@@ -23,9 +24,14 @@ void main() async {
   runApp(FlutterChatWorkshopApp());
 }
 
-class FlutterChatWorkshopApp extends StatelessWidget {
+class FlutterChatWorkshopApp extends StatefulWidget {
   const FlutterChatWorkshopApp({super.key});
 
+  @override
+  State<FlutterChatWorkshopApp> createState() => _FlutterChatWorkshopAppState();
+}
+
+class _FlutterChatWorkshopAppState extends State<FlutterChatWorkshopApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -40,19 +46,35 @@ class FlutterChatPage extends StatelessWidget {
 
   final controller = TextEditingController();
 
-  // TODO: create Firestore documents event stream of 'chat' collection
+  final stream = FirebaseFirestore.instance
+      .collection('chat')
+      .orderBy('time', descending: true)
+      .snapshots();
 
   ({
     String? name,
     String? message,
-    DateTime? time,
+    DateTime time,
   }) parseDocument(Map<String, dynamic> doc) {
-    // TODO: parse message and return typed record
-    throw UnimplementedError();
+    final time = DateTime.fromMillisecondsSinceEpoch(doc['time'] as int? ?? 0);
+
+    return (
+      name: doc['name'],
+      message: doc['message'],
+      time: time,
+    );
   }
 
   void sendMessage(String message) {
-    print(message);
+    if (message.isEmpty) {
+      return;
+    }
+
+    FirebaseFirestore.instance.collection('chat').add({
+      'name': userId,
+      'message': message,
+      'time': DateTime.now().millisecondsSinceEpoch,
+    });
 
     controller.clear();
   }
@@ -63,15 +85,25 @@ class FlutterChatPage extends StatelessWidget {
       body: Column(
         children: [
           Expanded(
-            // TODO: read messages from Firestore
-            child: ListView.builder(
-              reverse: true,
-              itemCount: 10,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  leading: Text('now'),
-                  title: Text('Message number $index'),
-                  subtitle: Text('John Doe'),
+            child: StreamBuilder(
+              stream: stream,
+              builder: (context, snapshot) {
+                final docs =
+                    snapshot.data?.docs.map((doc) => doc.data()).toList() ?? [];
+
+                return ListView.builder(
+                  reverse: true,
+                  itemCount: docs.length,
+                  itemBuilder: (context, index) {
+                    final doc = parseDocument(docs[index]);
+                    final time = DateFormat('hh:mm a').format(doc.time);
+
+                    return ListTile(
+                      leading: Text(time),
+                      title: Text(doc.message ?? ''),
+                      subtitle: Text(doc.name ?? ''),
+                    );
+                  },
                 );
               },
             ),

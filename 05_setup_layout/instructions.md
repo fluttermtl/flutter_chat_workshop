@@ -3,6 +3,8 @@
 The main focus of this step is to setup the layout of the application.
 Use the `Placeholder` widget to simulate the components such as chat list and text input.
 
+![Setup layout](https://raw.githubusercontent.com/fluttermtl/flutter_chat_workshop/assets/setup_layout.png)
+
 ---
 
 ## Column and Row

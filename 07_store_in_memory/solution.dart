@@ -20,23 +20,13 @@ class FlutterChatWorkshopApp extends StatelessWidget {
 }
 
 class FlutterChatPage extends StatefulWidget {
-  FlutterChatPage({super.key});
+  const FlutterChatPage({super.key});
 
   @override
   State<FlutterChatPage> createState() => _FlutterChatPageState();
 }
 
 class _FlutterChatPageState extends State<FlutterChatPage> {
-  final controller = TextEditingController();
-
-  var chatList = List<(String, String, String)>.empty();
-
-  void sendMessage(String message) {
-    setState();
-
-    controller.clear();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +35,7 @@ class _FlutterChatPageState extends State<FlutterChatPage> {
           Expanded(
             child: ListView.builder(
               reverse: true,
-              itemCount: chatList.length,
+              itemCount: 10,
               itemBuilder: (context, index) {
                 return ListTile(
                   leading: Text('now'),
@@ -55,20 +45,7 @@ class _FlutterChatPageState extends State<FlutterChatPage> {
               },
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(8),
-            child: TextField(
-              controller: controller,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                suffixIcon: IconButton(
-                  icon: Icon(Icons.send),
-                  onPressed: () => sendMessage(controller.text),
-                ),
-              ),
-              onSubmitted: sendMessage,
-            ),
-          ),
+          Placeholder(fallbackHeight: 64),
         ],
       ),
     );

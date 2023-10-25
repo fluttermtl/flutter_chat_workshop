@@ -1,4 +1,4 @@
-# Step 7: Write message
+# Step 8: Write message
 
 We want to be able to type a message and print it on the console.
 Use the according widget and use the `sendMessage` method without modifying it.
@@ -24,8 +24,7 @@ TextField(
 The `TextEditingController` is a controller for text input.
 It can be considered as a state of a `TextField` widget.
 Value is accessed through the `text` property.
-// TODO: edit the why
-This widget can be related to a controller to manage the text entered by the user by giving it to the `controller` property.
+TextField widget can be related to a controller to manage the text entered by the user by giving it to the `controller` property.
 
 ### How to use it
 ```dart

@@ -19,14 +19,31 @@ class FlutterChatWorkshopApp extends StatelessWidget {
   }
 }
 
+// TODO: convert StatelessWidget to StatefulWidget
 class FlutterChatPage extends StatelessWidget {
   const FlutterChatPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // TODO: based on the image, implement chat layout using Column, Placeholder
-      body: Container(),
+      body: Column(
+        children: [
+          Expanded(
+            child: ListView.builder(
+              reverse: true,
+              itemCount: 10,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  leading: Text('now'),
+                  title: Text('Message number $index'),
+                  subtitle: Text('John Doe'),
+                );
+              },
+            ),
+          ),
+          Placeholder(fallbackHeight: 64),
+        ],
+      ),
     );
   }
 }
