@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 final secret = String.fromCharCodes(
-  base64Decode('UmFpc2UgeW91ciBoYW5kIGFuZCBzaG93IHRoaXMh'),
+  base64Decode('U2VuZCAiRE9ORSIgdG8gdGhlIGNoYXQgYW5kIHJhaXNlIGhhbmQh'),
 );
 
 final userId = UniqueKey().toString();
@@ -50,7 +50,7 @@ class FlutterChatPage extends StatefulWidget {
 }
 
 class _FlutterChatPageState extends State<FlutterChatPage> {
-  final controller = TextEditingController(text: secret);
+  final controller = TextEditingController(text: 'simple text');
 
   final stream = FirebaseFirestore.instance
       .collection('chat')
@@ -74,7 +74,7 @@ class _FlutterChatPageState extends State<FlutterChatPage> {
   void sendMessage(String message) {
     print(message);
 
-    // TODO: send message to Firestore is message is not empty and use [userId] as message sender 'name'
+    // TODO: send message to Firestore if message is not empty and use [userId] as message sender 'name'
 
     controller.clear();
   }
@@ -114,6 +114,7 @@ class _FlutterChatPageState extends State<FlutterChatPage> {
               controller: controller,
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
+                hintText: secret,
                 suffixIcon: IconButton(
                   icon: Icon(Icons.send),
                   onPressed: () => sendMessage(controller.text),
