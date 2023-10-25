@@ -32,9 +32,9 @@ class _FlutterChatPageState extends State<FlutterChatPage> {
   final controller = TextEditingController();
 
   void sendMessage(String message) {
-    // TODO: add message to messages and refresh view
+    // TODO: Add message to messages list and refresh view (hint: setState)
 
-    // TODO: clear text from text input
+    // TODO: Clear text from text input
   }
 
   @override
@@ -45,19 +45,22 @@ class _FlutterChatPageState extends State<FlutterChatPage> {
           Expanded(
             child: ListView.builder(
               reverse: true,
-              itemCount: 10,
+              itemCount: messages.length,
               itemBuilder: (context, index) {
                 return ListTile(
                   leading: Text('now'),
-                  // TODO: replace text with message
-                  title: Text('Message number $index'),
+                  title: Text(
+                    'Message number $index', // TODO: Replace the text to display the message in the messages list.
+                  ),
                   subtitle: Text('John Doe'),
                 );
               },
             ),
           ),
-          // TODO: add text input and send message
-          Placeholder(fallbackHeight: 64),
+          Placeholder(
+            // TODO: Replace it with TextField that uses controller and submit the value to sendMessage
+            fallbackHeight: 64,
+          ),
         ],
       ),
     );

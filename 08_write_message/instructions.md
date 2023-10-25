@@ -1,15 +1,14 @@
 # Step 8: Write message
 
-We want to be able to type a message and print it on the console.
-Use the according widget and use the `sendMessage` method without modifying it.
+Now, we want to make our app able to write and display a message in the chat list.
+
+Complete the `TODO`s and run the app. It should have a text field that takes a message. Once the user presses the return key, the message the user typed should be displayed in the chat list.
 
 ---
 
 ## TextField
 
-`TextField` is a widget that allows the user to enter text.
-Multiple callbacks can be given to the `onSubmitted` when the user presses the return key.
-This component follow the Material Design specification.
+`TextField` is a widget that allows the user to enter text. Once the user presses the enter key with a new value in the `TestField`, it calls back the `onSubmitted`.
 
 ```dart
 TextField(
@@ -21,12 +20,10 @@ TextField(
 
 ## TextEditingController
 
-The `TextEditingController` is a controller for text input.
-It can be considered as a state of a `TextField` widget.
-Value is accessed through the `text` property.
-TextField widget can be related to a controller to manage the text entered by the user by giving it to the `controller` property.
+The `TextEditingController` is a text input controller that controls the `TextField`.
 
 ### How to use it
+
 ```dart
 // Define the controller as a member of Widget class
 final controller = TextEditingController(text: 'Hello World');
