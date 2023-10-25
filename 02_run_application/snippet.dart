@@ -8,7 +8,7 @@ final secret = String.fromCharCodes(
 );
 
 void main() {
-  // TODO: implement the app runner
+  // TODO: Implement runApp that starts SomeApp.
 }
 
 class SomeApp extends StatelessWidget {

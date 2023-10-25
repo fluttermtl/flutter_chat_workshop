@@ -1,18 +1,20 @@
 # Step 9: Read messages
 
-Retrieve the messages from the database and display them.
-Here is the document structure:
+Now, we want to make our app able to read messages from the database(Firebase) and display them in the chat list. We'll use Firebase Firestore to store as a database.
+
+*You don't need to worry about Firebase Configuration for this Workshop. We'll provide a pre-configured Firebase for you.*
+
+Here is the document structure in the Firestore database:
+
 - `name` [String?] Name of the user
 - `message` [String?] Text of the message
-- `time` [int?] Date and time of the message in milliseconds since epoch 
+- `time` [int?] Date and time of the message in milliseconds(Epoch)
 
 ---
 
 ## Firestore collection and document
 
-Firestore collection is accessible by using `collection` method that returns a `CollectionReference`.
-`CollectionReference` has a `orderBy` method to sort the documents by a property.
-
+Firestore collection is accessible using the `collection` method that returns a `CollectionReference`. It has an `orderBy` method to sort the documents by a property.
 
 ```dart
 final regularCollection = FirebaseFirestore.instance.collection("subject");
@@ -21,7 +23,7 @@ final regularCollection = FirebaseFirestore.instance.collection("subject");
 final orderedCollection = collectionReference.orderBy("name", descending: true);
 ```
 
-The `get` method of a `CollectionReference` returns documents of the collection. To be notifyed of changes in the collection, use the `snapshots` method.
+The `get` method of a `CollectionReference` returns documents of the collection. To be notified of changes in the collection, use the `snapshots` method. It returns a `Stream<QuerySnapshot>`.
 
 ```dart
 final stream = collectionReference.snapshots();
@@ -35,7 +37,7 @@ final stream = collectionReference.snapshots();
 
 ## StreamBuilder
 
-To display a stream of data, use a StreamBuilder widget.
+`StreamBuilder` is a widget that builds itself based on the latest snapshot of interaction with a `Stream`. It automatically synchronizes the widget with the latest data and changes in the stream.
 
 ```dart
 StreamBuilder<T>(
@@ -55,7 +57,6 @@ StreamBuilder<T>(
 ## Record fields
 
 > Records are an anonymous, immutable, aggregate type.
-
 
 ```dart
 // record with position argument
@@ -78,6 +79,5 @@ final coords = compute();
 coords.x; // 10
 coords.y; // 15
 ```
-
 
 [Records documentation](https://dart.dev/language/records)

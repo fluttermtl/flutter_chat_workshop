@@ -25,7 +25,7 @@ class FlutterChatPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // TODO: based on the image, implement chat layout using Column, Placeholder
+      // TODO: Implement chat layout using Column, Placeholder
       body: Container(),
     );
   }

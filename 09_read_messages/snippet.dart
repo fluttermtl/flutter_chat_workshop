@@ -2,7 +2,7 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables
 // ignore_for_file: unused_import
 
-// TODO: import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -45,15 +45,24 @@ class FlutterChatPage extends StatefulWidget {
 class _FlutterChatPageState extends State<FlutterChatPage> {
   final controller = TextEditingController();
 
-  // TODO: create Firestore documents event stream of 'chat' collection
+  // Stream that reads messages from Firestore
+  final stream = FirebaseFirestore.instance
+      .collection('chat')
+      .orderBy('time', descending: true)
+      .snapshots();
 
   ({
     String? name,
     String? message,
     DateTime? time,
   }) parseDocument(Map<String, dynamic> doc) {
-    // TODO: parse message and return typed record
-    throw UnimplementedError();
+    final time = DateTime.fromMillisecondsSinceEpoch(doc['time'] as int? ?? 0);
+
+    return (
+      name: doc['name'],
+      message: doc['message'],
+      time: time,
+    );
   }
 
   void sendMessage(String message) {
@@ -68,7 +77,7 @@ class _FlutterChatPageState extends State<FlutterChatPage> {
       body: Column(
         children: [
           Expanded(
-            // TODO: read messages from Firestore
+            // TODO: Wrap this ListView with StreamBuilder and use stream to read messages from Firestore. (hint: use parseDocument to parse the document)
             child: ListView.builder(
               reverse: true,
               itemCount: 10,

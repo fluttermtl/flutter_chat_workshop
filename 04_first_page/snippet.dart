@@ -24,4 +24,4 @@ class FlutterChatWorkshopApp extends StatelessWidget {
   }
 }
 
-// TODO: create a page that contains a Placeholder in the body
+// TODO: Implement FlutterChatPage that contains a Placeholder in the body

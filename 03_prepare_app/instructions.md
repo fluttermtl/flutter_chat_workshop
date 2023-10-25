@@ -1,16 +1,15 @@
 # Step 3: Prepare app
 
-This step will introduce you to the root and basics or Flutter.
-The framework is base on Widget as POO is based on Object.
+In this step, we will cover the basics of Flutter. You will learn how to start a Flutter app and how to create a widget.
+
 Complete the `TODO` using the sections below.
 
 ---
 
 ## StatelessWidget
 
-Every component in Flutter are `Widget` class and when it comes to create our own widgets, it starts with `StatelessWidget` class.
-`StatelessWidget` are components that don't have any state, but can still have properties.
-By Extending the `StatelessWidget` class, we have to implement the `build` function that will return the content of the component.
+Every component in Flutter is a `Widget` class. To create custom widgets, we need to extend the `StatelessWidget` class, which is a derived class of `Widget`.  
+`StatelessWidget` are components that don't have any state but can still have properties. By Extending the `StatelessWidget` class, we have to implement the `build` function that returns another `Widget`.
 
 ```dart
 class MyWidget extends StatelessWidget {
@@ -31,10 +30,10 @@ class MyWidget extends StatelessWidget {
 
 ## MaterialApp
 
-The `MaterialApp` is a widget based on Material Design framework.
+The `MaterialApp` is a convenience widget that wraps several widgets commonly required for Material Design applications.  
 It gives a lot of options to customize the look and feel of the app.
-More that than, it gives also some design behavior according to the framework like navigation, theme, context, etc. 
-`home` property is the widget that will be the root of the app.
+More than that, it also gives some design behavior according to the framework, like navigation, theme, context, etc.  
+The `home` property is the widget that will be the app's root.
 
 ```dart
 MaterialApp(
