@@ -1,15 +1,13 @@
 # Step 4: First page
 
-Now that we have setuped our app, we will go to the first page.
-Try to run your first page with a placeholder widget inside.
+We just finished the basic setup of our application. Let's create the first page.
+For now, we'll create a page with a `Placeholder` widget inside. Let's complete the `TODO` in the code.
 
 ---
 
 ## Scaffold
 
-We describe a page with a `Scaffold` widget. 
-Based on Material Design framework, some ui features come along like `AppBar`, `FloatingActionButton` or `Drawer` widget integration. 
-It also gives some design behavior like dialog, bottomsheet, etc.
+`Scaffold` describes the Material Design visual layout structure. It makes it easy to implement the Material Design layout and use some Material Design features like `AppBar`, `FloatingActionButton`, or `Drawer` widgets, along with features like dialog, bottom sheet, etc.
 
 ```dart
 Scaffold(
@@ -21,10 +19,8 @@ Scaffold(
 
 ## Placeholder
 
-This is the most amazing and useful `Widget` during development and prototyping user interface time.
-It can replace any widget or area which is work in progress.
-For text we have 'Lorem Ipsum', for `Widget` we have `Placeholder`.
-
+The `Placeholder` is a useful `Widget` during development and prototyping user interface time. Just put `Placeholder` in your code, and you'll see a box with a cross in it. It's a great way to see the layout of your app without implementing the entire UI.
+You can think this way, `Placeholder` is [Lorem Ipsum](https://www.lipsum.com/) for `Widget`.
 
 ```dart
 Container(

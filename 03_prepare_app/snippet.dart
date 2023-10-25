@@ -13,7 +13,7 @@ void main() {
   runApp(FlutterChatWorkshopApp());
 }
 
-// TODO: create a [FlutterChatWorkshopApp] StatelessWidget that returns MaterialApp and use [SomePage] as [home]
+// TODO: Implement a [FlutterChatWorkshopApp] StatelessWidget that returns MaterialApp. The home of the MaterialApp must be [SomePage]
 
 class SomePage extends StatelessWidget {
   const SomePage({super.key});
