@@ -1,6 +1,8 @@
 # Step 10: Send message
 
-This last step is to send a message to the chat.
+Finally it's the last step. Let's complete the chat app by sending a message to the Firebase Firestore database. This step can be challenging, but you can do it!
+
+Make sure you are sending the right data structure to the database. (Check the previous step)
 
 ---
 
