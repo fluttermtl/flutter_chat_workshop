@@ -1,5 +1,4 @@
 // ignore_for_file: prefer_const_constructors
-// ignore_for_file: prefer_const_constructors_in_immutables
 // ignore_for_file: prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
@@ -20,16 +19,22 @@ class FlutterChatWorkshopApp extends StatelessWidget {
   }
 }
 
-class FlutterChatPage extends StatelessWidget {
+class FlutterChatPage extends StatefulWidget {
   FlutterChatPage({super.key});
 
-  // TODO: declare the controller and use it on the text input
+  @override
+  State<FlutterChatPage> createState() => _FlutterChatPageState();
+}
 
-  // Use this function at the right place
+class _FlutterChatPageState extends State<FlutterChatPage> {
+  final controller = TextEditingController();
+
+  var chatList = List<(String, String, String)>.empty();
+
   void sendMessage(String message) {
-    print(message);
+    setState();
 
-    // TODO: clear the text input
+    controller.clear();
   }
 
   @override
@@ -40,7 +45,7 @@ class FlutterChatPage extends StatelessWidget {
           Expanded(
             child: ListView.builder(
               reverse: true,
-              itemCount: 10,
+              itemCount: chatList.length,
               itemBuilder: (context, index) {
                 return ListTile(
                   leading: Text('now'),
@@ -50,8 +55,20 @@ class FlutterChatPage extends StatelessWidget {
               },
             ),
           ),
-          // TODO: implement message text input
-          Placeholder(fallbackHeight: 64),
+          Padding(
+            padding: const EdgeInsets.all(8),
+            child: TextField(
+              controller: controller,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                suffixIcon: IconButton(
+                  icon: Icon(Icons.send),
+                  onPressed: () => sendMessage(controller.text),
+                ),
+              ),
+              onSubmitted: sendMessage,
+            ),
+          ),
         ],
       ),
     );

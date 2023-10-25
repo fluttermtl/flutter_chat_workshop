@@ -1,4 +1,4 @@
-# Step 7: Send message
+# Step 9: Send message
 
 This last step is to send a message to the chat.
 
