@@ -2,7 +2,7 @@
 
 Since then, we've been using `StatelessWidget` to create our widgets because it's the simplest way to create a widget without having to deal with the state. But what if you want to change a part of the screen dynamically? For that, we need to use `StatefulWidget`.
 
-`DartPad` or any Flutter IDE like `VSCode` or `Android Studio` can help you to convert a `StatelessWidget` to a `StatefulWidget` easily using the keyboard shortcut (ctrl + . or cmd + .)
+`DartPad` or any Flutter IDE like `VSCode` or `Android Studio` can help you to convert a `StatelessWidget` to a `StatefulWidget` easily using the keyboard shortcut (`alt + enter`)
 
 To complete the `TODO`, Just place the cursor on top of the `StatelessWidget` and use the shortcut.
 

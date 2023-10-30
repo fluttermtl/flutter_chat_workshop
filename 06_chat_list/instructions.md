@@ -1,7 +1,6 @@
 # Step 6: Chat list
 
-It is time to implement the chat list.  
-We will implement the chat list using `ListView` to display messages. Each message will contain the time, the sender's name, and the text.
+It is time to implement the chat list. We will implement the chat list using `ListView` to display messages. Each message will contain the time, the sender's name, and the text.
 
 ---
 

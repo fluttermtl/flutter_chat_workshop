@@ -23,9 +23,7 @@ class MyWidget extends StatelessWidget {
 ```
 
 [Widget documentation](https://api.flutter.dev/flutter/widgets/Widget-class.html)
-
 [StatelessWidget documentation](https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html)
-
 [StatefulWidget documentation](https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html)
 
 ## MaterialApp

@@ -34,7 +34,7 @@ class _FlutterChatPageState extends State<FlutterChatPage> {
   void sendMessage(String message) {
     // TODO: Add message to messages list and refresh view (hint: setState)
 
-    // TODO: Clear text from text input
+    controller.clear();
   }
 
   @override
@@ -49,17 +49,19 @@ class _FlutterChatPageState extends State<FlutterChatPage> {
               itemBuilder: (context, index) {
                 return ListTile(
                   leading: Text('now'),
-                  title: Text(
-                    'Message number $index', // TODO: Replace the text to display the message in the messages list.
-                  ),
+                  title: Text(messages[messages.length - index - 1]),
                   subtitle: Text('John Doe'),
                 );
               },
             ),
           ),
-          Placeholder(
-            // TODO: Replace it with TextField that uses controller and submit the value to sendMessage
-            fallbackHeight: 64,
+          Padding(
+            padding: const EdgeInsets.all(8),
+            child: TextField(
+              controller: controller,
+              decoration: InputDecoration(border: OutlineInputBorder()),
+              // TODO: Implement onSubmitted callback to call [sendMessage] when the user taps enter.
+            ),
           ),
         ],
       ),

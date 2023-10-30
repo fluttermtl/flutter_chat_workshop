@@ -27,12 +27,5 @@ Right Panel:
 
 ## Flutter IDE Command
 
-```dart
-// Flutter Widget help
-'ctrl' + '.' (dot)
-```
-
-```dart
-// Comment code
-'ctrl' + '/'
-```
+- Commenting: `'ctrl' + '/'`
+- Quick Fix:  `'alt' + 'enter'`

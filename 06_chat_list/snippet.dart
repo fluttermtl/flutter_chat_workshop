@@ -28,7 +28,13 @@ class FlutterChatPage extends StatelessWidget {
       body: Column(
         children: [
           Expanded(
-            // TODO: Implement chat list using ListView, ListTile (Replace Placeholder with your implementation)
+            // TODO: Replace the Placeholder with a ListView that creates 10 ListTiles in reverse order.
+            // Example of ListTile:
+            // ListTile(
+            //  leading: Text('now'),
+            //  title: Text('Message number $index'),
+            //  subtitle: Text('John Doe'),
+            //)
             child: Placeholder(),
           ),
           Placeholder(fallbackHeight: 64),

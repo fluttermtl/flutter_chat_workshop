@@ -13,7 +13,15 @@ void main() {
   runApp(FlutterChatWorkshopApp());
 }
 
-// TODO: Implement a [FlutterChatWorkshopApp] StatelessWidget that returns MaterialApp. The home of the MaterialApp must be [SomePage]
+class FlutterChatWorkshopApp extends StatelessWidget {
+  const FlutterChatWorkshopApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: Make it return MaterialApp that has [SomePage] is home.
+    return Placeholder();
+  }
+}
 
 class SomePage extends StatelessWidget {
   const SomePage({super.key});
